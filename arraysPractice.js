@@ -5,25 +5,25 @@ var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item in the given array.
 
   //Code Here
-function first (arr) {
-  return arr[0];
+function first (foo) {
+  return foo[0];
 }
-first(arr);
-//Next problem
+var results = first();
+alert(results);
 
-
+//Next Problem
 
 var arr = [40,50,60];
 //Create a function named 'last' that is given 'arr' as the argument and returns the last item in the given array.
 
-
   //Code Here
-function last (arr) {
-  return arr[arr.length - 1];
+function last (foo) {
+  return foo[foo.length - 1];
 }
+var run = last(arr);
+alert(run);
 
 //Next Problem
-
 
 var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
@@ -31,10 +31,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
   //Code Here
 function looper (family) {
 for (var i = 0; i < family.length; i++) {
-  alert(family[i]);
+  return family[i];
 }
 }
-
+var results = looper();
+looper();
 //Next problem
 
 
@@ -58,15 +59,16 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
   //Code Here
 function evenFinder (nums) {
-  var evens = [];
+  var results = [];
   for (var i = 0; i < nums.length; i++) {
-    if (i % 2 === 0 ) {
-      evens.push(nums[i]);
+    if(nums[i]%2===0){
+      results.push(nums[i]);
     }
   }
-  return evens;
+  return results;
 }
-evenFinder(nums);
+var newEvens = evenFinder(nums);
+console.log(newEvens);
 //Next problem
 
 
@@ -78,11 +80,19 @@ var odds = [];
 //second item in the Array being the odds array(all the odd values from nums).
 
 
-function divider (nums, evens, odds) {
-  var newArray [];
-}
+function divider (arr) {
+  
+  for (var i = 0; i < arr.length; i++) {
+    if(arr[i]%2===0) {
+      evens.push(arr[i]);
+    } else {
+      odds.push(arr[i]); }
+    }
+    var array = [evens, odds];
+    return array;
+    }
 
-
+divider(nums);
   //Code Here
 
 
@@ -98,11 +108,17 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //If it is, return true, if it's not, return false
 
   //Code Here
-function finder (getRandomArbitrary) {
+function finder (num) {
   for (var i = 0; i < numbers.length; i++) {
-    if ()
-  };
+    if (num === numbers[i]) {
+      return "true";
+  } else {
+    return "false";
+  }
 }
+}
+var result = finder(getRandomArbitrary());
+console.log(result);
 
 //Next problem
 
@@ -135,13 +151,25 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   //Code Here
 
+  function removeItem (myGroceryList, itemRemove) {
+    for(var i = 0; i<myGroceryList.length; i++) {
+      if(itemRemove === myGroceryList[i]) {
+        myGroceryList.splice(i, 1);
+    }
+    return myGroceryList;
+  }
+  }
+
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
 
 
 //Next Problem
-
+function addItem (myGroceryList, itemAdd) {
+  myGroceryList.push(itemAdd);
+  return myGroceryList;
+}
 
 
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
@@ -189,7 +217,14 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
+function longer (arr1, arr2) {
+  if (arr1.length > arr2.length) {
+    return "arr1";
+  } else if (arr2.length > arr1.length) {
+    return "arr2";
+  }
+  }
+console.log(longer(arr1, arr2));
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example)
@@ -197,8 +232,11 @@ for(var i = 0; i < num2; i++){
 */
 
   //Code Here
-  
-  
+  function both(arr1, arr2) {
+    var both = arr1.concat(arr2);
+    return both;
+  }
+  console.log(both(arr1, arr2));
   
 
 //NEXT PROBLEM
@@ -238,13 +276,24 @@ sure that it's equal to 4. */
 
   //Code Here
 
+  devMountainEmployees.push(tyler, cahlan, ryan, colt);
+  console.log(devMountainEmployees);
+  console.log(devMountainEmployees.length);
+
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
 
+function removeFromArray(array, value) {
+    var idx = array.indexOf(value);
+    if (idx !== -1) {
+        array.splice(idx, 1);
+    }
+    return array;
+}
 
-
+removeFromArray(devMountainEmployees, cahlan);
 
 //NEXT PROBLEM
 
@@ -284,6 +333,7 @@ of Data is to have an Array full of objects. */
 //Create an empty array called users.
 
   //Code Here
+var users = [];
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
@@ -294,9 +344,24 @@ var user1 = {
     email: 'tylermcginnis33@gmail.com',
     password: 'iLoveJavaScript',
     username: 'infiniateLoop'
+},
+
+var user2 = {
+    name: 'Austin Miller',
+    email: 'myaddress233@gmail.com',
+    password: 'iLoveJavaScript',
+    username: 'infiniateLoop'
+},
+
+var user3 = {
+    name: 'Bob Smith',
+    email: 'hello20@gmail.com',
+    password: 'iLoveJavaScript',
+    username: 'infiniateLoop'
 };
 
 //Your Code Here
+users.push(user1, user2, user3);
 
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
@@ -307,6 +372,10 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
-
+for (var prop in users) {
+  if(users[prop].email === 'tylermcginnis33@gmail.com'){
+    users.splice(i, 1);
+  }
+}
 //The activity we just did is very much how data works in 'the real world'.
 
